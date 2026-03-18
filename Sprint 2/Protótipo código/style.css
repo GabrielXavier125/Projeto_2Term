@@ -1,0 +1,338 @@
+/* ===== RESET E CONFIGURAÇÕES GLOBAIS ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #F7FAFC;  /* Branco gelo - fundo da página */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== HEADER (CABEÇALHO) ===== */
+.header {
+    background-color: #003366;  /* Azul SENAI */
+    color: white;
+    padding: 0 32px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.logo-header {
+    width: 120px;           /* Largura adequada para o header */
+    height: auto;           /* Mantém proporção */
+    display: block;
+    /* Remove o filter: brightness(0) invert(1) se quiser a logo original */
+}
+
+.biblioteca-header {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Menu do header */
+.header-menu {
+    display: flex;
+    gap: 8px;
+}
+
+.menu-item {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.menu-item.active {
+    background-color: #F39200;  /* Laranja SENAI */
+    color: white;
+    font-weight: bold;
+}
+
+/* Informações do usuário no header */
+.user-info-header {
+    text-align: right;
+    font-size: 14px;
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    padding-left: 20px;
+}
+
+.user-info-header small {
+    color: rgba(255, 255, 255, 0.7);
+    display: block;
+    margin-top: 4px;
+}
+
+/* ===== CONTEÚDO PRINCIPAL ===== */
+.content {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 32px 24px;
+    flex: 1;
+}
+
+/* Cabeçalho da página */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.page-header h1 {
+    color: #003366;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.btn-adicionar {
+    background-color: #F39200;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-adicionar:hover {
+    background-color: #C47100;
+}
+
+/* ===== TABELA ===== */
+.table-container {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #E2E8F0;
+    overflow-x: auto;
+    margin-bottom: 24px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #F1F5F9;
+    border: 2px solid #718096;  /* Borda externa */
+}
+
+/* Cabeçalho da tabela */
+th {
+    background-color: #003366;
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 16px 12px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+/* Células da tabela */
+td {
+    padding: 14px 12px;
+    color: #2D3748;
+    border-bottom: 1px solid #A0AEC0;
+}
+
+/* Linhas alternadas */
+tbody tr:nth-child(even) {
+    background-color: #E2E8F0;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #F1F5F9;
+}
+
+/* Efeito hover */
+tbody tr:hover {
+    background-color: #D1D5DB;
+    transition: background-color 0.2s;
+}
+
+/* Linha selecionada por duplo clique */
+tbody tr.selecionado {
+    background-color: #FFF3E0;  /* Laranja bem clarinho */
+    border-left: 4px solid #F39200;
+    position: relative;
+}
+
+/* Célula de ações */
+.acoes-cell {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+/* Botões de editar e excluir */
+.btn-editar, .btn-excluir {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-editar {
+    color: #003366;
+}
+
+.btn-editar:hover {
+    background-color: rgba(0, 51, 102, 0.1);
+    transform: scale(1.1);
+}
+
+.btn-excluir {
+    color: #C53030;  /* Vermelho suave */
+}
+
+.btn-excluir:hover {
+    background-color: rgba(197, 48, 48, 0.1);
+    transform: scale(1.1);
+}
+
+/* Dica de interação */
+.dica {
+    background-color: #E2E8F0;
+    padding: 14px 20px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    color: #2D3748;
+    font-size: 15px;
+    border-left: 4px solid #F39200;
+}
+
+/* Barra de ações inferior */
+.action-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 16px 24px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid #E2E8F0;
+}
+
+.btn-reservar {
+    background-color: #003366;
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-reservar:hover {
+    background-color: #002244;
+}
+
+.qtd-selecionados {
+    color: #718096;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 900px) {
+    .header-container {
+        flex-direction: column;
+        height: auto;
+        padding: 16px 0;
+        gap: 12px;
+    }
+    
+    .user-info-header {
+        border-left: none;
+        padding-left: 0;
+        text-align: center;
+    }
+    
+    .header-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .content {
+        padding: 20px 16px;
+    }
+    
+    .page-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .btn-adicionar {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .action-bar {
+        flex-direction: column;
+        gap: 16px;
+        align-items: stretch;
+    }
+    
+    .btn-reservar {
+        width: 100%;
+    }
+    
+    .acoes-cell {
+        flex-direction: column;
+        gap: 4px;
+    }
+    
+    th, td {
+        padding: 12px 8px;
+        font-size: 14px;
+    }
+}

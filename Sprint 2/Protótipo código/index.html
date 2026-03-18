@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca SENAI</title>
+    <!-- Font Awesome para ícones profissionais -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-area">
+                <img src="Senai Azul.png" alt="SENAI" class="logo-header">
+                <span class="biblioteca-header">SENAI</span>
+            </div>
+            
+            <nav class="header-menu">
+                <a href="#" class="menu-item active"><i class="fas fa-book"></i> Biblioteca</a>
+                <a href="#" class="menu-item"><i class="fas fa-calendar-alt"></i> Reservas</a>
+                <a href="#" class="menu-item sair"><i class="fas fa-sign-out-alt"></i> Sair</a>
+            </nav>
+            
+            <div class="user-info-header">
+                <span><i class="fas fa-user-circle"></i> Bibliotecário</span>
+                <small>admin@senai.br</small>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="content">
+        
+        <!-- Cabeçalho da página -->
+        <div class="page-header">
+            <h1><i class="fas fa-book-open"></i> Biblioteca SENAI</h1>
+            <button class="btn-adicionar"><i class="fas fa-plus-circle"></i> Adicionar Livro</button>
+        </div>
+
+        <!-- TABELA DE LIVROS -->
+        <div class="table-container">
+            <table id="tabela-livros">
+                <thead>
+                    <tr>
+                        <th>ISBN</th>
+                        <th>Nome do Livro</th>
+                        <th>Disciplina</th>
+                        <th>Prateleira</th>
+                        <th>Qtd.</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>978-85-1234-567-8</td>
+                        <td>Dom Casmurro</td>
+                        <td>Português</td>
+                        <td>A1</td>
+                        <td>5</td>
+                        <td class="acoes-cell">
+                            <button class="btn-editar" title="Editar"><i class="fas fa-edit"></i></button>
+                            <button class="btn-excluir" title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>978-85-9876-543-2</td>
+                        <td>O Alquimista</td>
+                        <td>Literatura</td>
+                        <td>B3</td>
+                        <td>3</td>
+                        <td class="acoes-cell">
+                            <button class="btn-editar" title="Editar"><i class="fas fa-edit"></i></button>
+                            <button class="btn-excluir" title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>978-85-5678-901-2</td>
+                        <td>1984</td>
+                        <td>Literatura</td>
+                        <td>C2</td>
+                        <td>2</td>
+                        <td class="acoes-cell">
+                            <button class="btn-editar" title="Editar"><i class="fas fa-edit"></i></button>
+                            <button class="btn-excluir" title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>978-85-4321-876-5</td>
+                        <td>Senhor dos Anéis</td>
+                        <td>Literatura</td>
+                        <td>D5</td>
+                        <td>4</td>
+                        <td class="acoes-cell">
+                            <button class="btn-editar" title="Editar"><i class="fas fa-edit"></i></button>
+                            <button class="btn-excluir" title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>978-85-2468-135-7</td>
+                        <td>Python para Todos</td>
+                        <td>Programação</td>
+                        <td>E1</td>
+                        <td>7</td>
+                        <td class="acoes-cell">
+                            <button class="btn-editar" title="Editar"><i class="fas fa-edit"></i></button>
+                            <button class="btn-excluir" title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>978-85-3698-741-2</td>
+                        <td>Redes de Computadores</td>
+                        <td>Redes</td>
+                        <td>F4</td>
+                        <td>2</td>
+                        <td class="acoes-cell">
+                            <button class="btn-editar" title="Editar"><i class="fas fa-edit"></i></button>
+                            <button class="btn-excluir" title="Excluir"><i class="fas fa-trash-alt"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Dica de interação -->
+        <div class="dica">
+            <i class="fas fa-lightbulb"></i> <strong>Dica:</strong> Clique duas vezes em qualquer linha do livro para selecionar
+        </div>
+
+        <!-- Barra de ações inferior -->
+        <div class="action-bar">
+            <button class="btn-reservar"><i class="fas fa-bookmark"></i> Reservar Selecionados</button>
+            <span class="qtd-selecionados" id="qtd-selecionados"><i class="fas fa-check-circle"></i> 0 livro(s) selecionado(s)</span>
+        </div>
+    </main>
+
+    <!-- SCRIPT para duplo clique -->
+    <script>
+        const linhas = document.querySelectorAll('#tabela-livros tbody tr');
+        const spanQtd = document.getElementById('qtd-selecionados');
+
+        linhas.forEach(linha => {
+            linha.addEventListener('dblclick', function() {
+                this.classList.toggle('selecionado');
+                atualizarContador();
+            });
+        });
+
+        function atualizarContador() {
+            const selecionados = document.querySelectorAll('#tabela-livros tbody tr.selecionado');
+            spanQtd.innerHTML = `<i class="fas fa-check-circle"></i> ${selecionados.length} livro(s) selecionado(s)`;
+        }
+    </script>
+</body>
+</html>
