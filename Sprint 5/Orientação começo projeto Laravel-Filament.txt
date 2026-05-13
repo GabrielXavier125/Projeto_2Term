@@ -1,0 +1,42 @@
+Para criar um projeto em Laravel com Filament PHP, você deve seguir três etapas principais: preparar o ambiente Laravel, instalar o Filament e configurar o seu primeiro painel administrativo. 
+O Filament utiliza a TALL Stack (Tailwind CSS, Alpine.js, Laravel e Livewire), por isso certifique-se de que seu ambiente possui PHP 8.2+ e Laravel 11+. 
+Filament
+Filament
+
+1. Criar um novo projeto Laravel
+Se você ainda não tem o projeto, crie um usando o Composer: 
+bash
+composer create-project laravel/laravel nome-do-seu-projeto
+cd nome-do-seu-projeto
+Use o código com cuidado.
+ 
+2. Instalar o Filament
+Dentro da pasta do projeto, instale o pacote principal do Filament via Composer:
+bash
+composer require filament/filament
+Use o código com cuidado.
+3. Instalar o Painel Administrativo (Panel Builder)
+O Filament funciona através de "painéis". Para criar o painel padrão (geralmente acessado em /admin), execute: 
+bash
+php artisan filament:install --panels
+Use o código com cuidado.
+ 
+Filament
+Filament
+4. Configuração Final
+Para começar a usar o painel, você precisará de um usuário e do banco de dados configurado:
+Migrações: Execute php artisan migrate para criar as tabelas necessárias.
+Criar Usuário: Utilize o comando php artisan make:filament-user para criar seu primeiro acesso administrativo.
+Acessar: Inicie o servidor local com php artisan serve e acesse http://localhost:8000/admin. 
+iMasters
+iMasters
+
+Dicas para Evoluir o Projeto
+Criar Recursos (CRUDs): Use o comando php artisan make:filament-resource NomeDoModel para gerar automaticamente as telas de listagem, criação e edição para suas tabelas.
+Tradução: Você pode traduzir o painel para português alterando o locale no arquivo config/app.php para 'pt_BR'.
+Documentação: Para detalhes avançados sobre componentes de formulários ou tabelas, consulte a Documentação Oficial do Filament. 
+
+
+Usuário Admin
+Usuário: admin@senai.br
+Senha: senai123
